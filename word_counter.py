@@ -5,3 +5,9 @@ def read_file(file_path: str) -> str:
     """Зчитує текст із файлу."""
     with open(file_path, 'r', encoding='utf-8') as file:
         return file.read()
+    
+def get_top_words(text: str, top_n: int = 10) -> list:
+    """Знаходить top_n найпопулярніших слів у тексті."""
+    words = re.findall(r'\b\w+\b', text.lower())
+    counter = Counter(words)
+    return counter.most_common(top_n)
