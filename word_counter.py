@@ -11,3 +11,9 @@ def get_top_words(text: str, top_n: int = 10) -> list:
     words = re.findall(r'\b\w+\b', text.lower())
     counter = Counter(words)
     return counter.most_common(top_n)
+
+def write_results(file_path: str, top_words: list) -> None:
+    """Записує результат у файл у форматі 'слово-кількість'."""
+    with open(file_path, 'w', encoding='utf-8') as file:
+        for word, count in top_words:
+            file.write(f"{word}-{count}\n")
