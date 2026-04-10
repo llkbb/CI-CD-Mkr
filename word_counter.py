@@ -33,4 +33,3 @@ if __name__ == "__main__":
         print(f"Успішно оброблено. Результат збережено у {output_file}")
     except FileNotFoundError:
         print(f"Помилка: Файл {input_file} не знайдено.")
-        
