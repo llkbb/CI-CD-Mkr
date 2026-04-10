@@ -17,3 +17,15 @@ def write_results(file_path: str, top_words: list) -> None:
     with open(file_path, 'w', encoding='utf-8') as file:
         for word, count in top_words:
             file.write(f"{word}-{count}\n")
+
+if __name__ == "__main__":
+    input_file = 'input.txt' 
+    output_file = 'output.txt' 
+    
+    try:
+        text = read_file(input_file)
+        top_10 = get_top_words(text, 10)
+        write_results(output_file, top_10)
+        print(f"Успішно оброблено. Результат збережено у {output_file}")
+    except FileNotFoundError:
+        print(f"Файл {input_file} не знайдено.")
